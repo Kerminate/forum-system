@@ -18,5 +18,10 @@ module.exports = app => {
     create_time: { type: Date, default: Date.now },
   });
 
+  UserSchema.index({ username: 1 }, { unique: true });
+
+  // 可输出所有非空字段，virtuals 字段也输出，用于从数据库拿到的数据可以类似对象直接增加字段
+  UserSchema.set('toObject', { getters: true, virtuals: true });
+
   return mongoose.model('User', UserSchema);
 };

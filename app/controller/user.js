@@ -25,7 +25,7 @@ class UserController extends Controller {
     if (user) {
       return this.logger.error('该邮箱已经被注册了');
     }
-    await ctx.service.user.register(body);
+    await ctx.service.user.create(body);
     ctx.body = 'register success';
   }
 

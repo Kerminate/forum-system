@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = appInfo => {
-  const config = exports = {};
+  const config = {};
 
   config.name = 'Forum';
   // use for cookie sign key, should change to your own and keep security

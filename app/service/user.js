@@ -7,7 +7,8 @@ class UserService extends Service {
     const { ctx } = this;
     return ctx.model.User.find({}).exec();
   }
-  async register(query) {
+
+  async create(query) {
     const { ctx } = this;
     const user = new ctx.model.User({
       username: query.username,
@@ -16,6 +17,7 @@ class UserService extends Service {
     });
     return user.save();
   }
+
   async findOne(param, query) {
     const { ctx } = this;
     return ctx.model.User.findOne({ [param]: query });
