@@ -1,30 +1,31 @@
-'use strict';
+'use strict'
 
 module.exports = appInfo => {
-  const config = {};
+  const config = {}
 
-  config.name = 'Forum';
+  config.name = 'Forum'
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + '_1531043523227_2871';
+  config.keys = appInfo.name + '_1531043523227_2871'
 
   // add your config here
-  config.middleware = [];
+  config.middleware = []
 
   config.mongoose = {
     client: {
       url: 'mongodb://127.0.0.1:27017/forum',
       options: {
-        useNewUrlParser: true,
-      },
-    },
-  };
+        useNewUrlParser: true
+      }
+    }
+  }
+
   config.security = {
     domainWhiteList: [ '' ],
     csp: {
-      enable: false,
+      enable: false
     },
     csrf: {
-      enable: false,
+      enable: false
       // useSession: false, // if useSession set to true, the secret will keep in session instead of cookie
       // ignoreJSON: false, // skip check JSON requests if ignoreJSON set to true
       // cookieName: 'csrfToken', // csrf token's cookie name
@@ -32,8 +33,13 @@ module.exports = appInfo => {
       // headerName: 'x-csrf-token', // request csrf token's name in header
       // bodyName: '_csrf', // request csrf token's name in body
       // queryName: '_csrf', // request csrf token's name in query
-    },
-  };
+    }
+  }
 
-  return config;
-};
+  config.score = {
+    topic: 5, // 发表一个主题加5分
+    reply: 1 // 一个回复加1分
+  }
+
+  return config
+}
