@@ -14,7 +14,7 @@ class TopicController extends Controller {
   async create () {
     const { ctx } = this
     const { body } = ctx.request
-    if (!body.title || !body.tag || !body.content) {
+    if (!body.title || !body.content) {
       return this.logger.error('您请求的参数不完整！')
     }
     const userId = ctx.session.user._id
